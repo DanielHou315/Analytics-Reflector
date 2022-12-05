@@ -5,6 +5,8 @@
     <header>
         <title>Analytics Reflector</title>
         <link rel="stylesheet" href="style.css">
+        <script src="cookie_util.js"></script>
+        <script src="check_eula.js"></script>
     </header>
 
     <!-- Body -->
@@ -44,9 +46,74 @@
             <p>This website is created as a University of Michigan class project and is distributed under the GPLv2 license. Please read source code <a href="https://www.github.com/DanielHou315">here</a></p>
         </div>
 
+        <script>
+            let useragent = navigator.userAgent;
+            let lang = navigator.language;
 
+            setCookie("useragent", useragent);
+            setCookie("lang", lang);
 
-        <script src="info.js"></script>
+            console.log(useragent);
+            console.log(lang);
+            // Operating System Detection
+            if(useragent.includes("Mac OS")){ 
+                document.getElementById('os').innerHTML = "Apple MacOS/iOS"; 
+                setCookie("os", "Apple MacOS/iOS", 1);
+            }
+            else if(useragent.includes("Windows")){ 
+                document.getElementById('os').innerHTML = "Microsoft Windows";
+                setCookie("os", "Microsoft Windows", 1); 
+            }
+            else if(useragent.includes("Linux")){ 
+                document.getElementById('os').innerHTML = "Linux"; 
+                setCookie("os", "Linux", 1);
+            }
+            else{ 
+                document.getElementById('os').innerHTML = "Other";
+                setCookie("os", "Other", 1);
+            }
+
+            // Browser Detection
+            if(useragent.includes("Firefox")){ 
+                document.getElementById('browser').innerHTML = "Mozilla Firefox"; 
+                setCookie("browser", "Mozilla Firefox", 1);
+            }
+            else if(useragent.includes("Chrome")){ 
+                document.getElementById('browser').innerHTML = "Google Chrome or Chromium"; 
+                setCookie("browser", "Google Chrome or Chromium", 1);
+            }
+            else if(useragent.includes("Safari")){ 
+                document.getElementById('browser').innerHTML = "Apple Safari"; 
+                setCookie("browser", "Apple Safari", 1);
+            }
+            else if(useragent.includes("Edg")){ 
+                document.getElementById('browser').innerHTML = "Microsoft Edge (Chromium)"; 
+                setCookie("browser", "Microsoft Edge (Chromium)", 1);
+            }
+            else if(useragent.includes("Edge")){ 
+                document.getElementById('browser').innerHTML = "Microsoft Edge (Legacy)"; 
+                setCookie("browser", "Microsoft Edge (Legacy)", 1);
+            }
+            else if(useragent.includes("Trident")){ 
+                document.getElementById('browser').innerHTML = "Microsoft Internet Explorer"; 
+                setCookie("browser", "Microsoft Internet Explorer", 1);
+            }
+            else if(useragent.includes("Opera") || useragent.includes("OPR")){ 
+                document.getElementById('browser').innerHTML = "Opera"; 
+                setCookie("browser", "Opera", 1);
+            }
+            else if(useragent.includes("SamsungBrowser")){ 
+                document.getElementById('browser').innerHTML = "Samsung Internet"; 
+                setCookie("browser", "Samsung Internet", 1);
+            }
+            else{ 
+                document.getElementById('browser').innerHTML = "Other"; 
+                setCookie("browser", "Other", 1);
+            }
+
+            // Language Detection
+            document.getElementById('lang').innerHTML = lang;
+        </script>
 
     </body>  
 </html>

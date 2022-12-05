@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+    <!-- Header -->
+    <header>
+        <title>Analytics Reflector</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="cookie_util.js"></script>
+        <script src="check_eula.js"></script>
+    </header>
+
+
+    <!-- Body -->
+    <body bgcolor="lightblue" class="content">
+        <!-- Topic Section -->
+        <h1> Review <var id="output"></var></h1>
+        
+        <!-- Knowledge and Tips -->
+        <hr style="border-top: dotted 1px;" />
+        <div>
+            <h2>Here are some information we may know</h2>
+            <p>When you click into the website of some web service</p>
+        </div>
+
+        <hr style="border-top: dotted 1px;" />
+        <div>
+            <p>Your Operating System is: <var id="os"></var></p>
+            <p>Your Browser is: <var id="browser"></var></p>
+            <p>Your System Language is: <var id="lang"></var></p>
+        </div>
+        
+        <hr style="border-top: dotted 1px;" />
+        <div>
+            <h2>Your Network Information</h2>
+            <p>Your Public IP address is: <var id="ip"></var> </p>
+            <p>Your Location is: <var id="city"></var>, <var id="country"></var>.</p>
+            <p>Your Internet Service Provider is: <var id="asn"></var>.</p>
+        </div>
+
+        <hr style="border-top: dotted 1px;" />
+        <div>
+            <h2>Your Browsing Preference Test Result</h2>
+            <p>You clicked on Deals <var id="deals"></var> times</p>
+
+            <hr style="border-top: dotted 1px;" />
+            <p>You clicked on Home Products <var id="home"></var> times</p>
+            <p>You clicked on Snacks <var id="snacks"></var> times</p>
+
+            <hr style="border-top: dotted 1px;" />
+            <p>You clicked on Smart Cameras <var id="smart_camera"></var> times</p>
+            <p>You clicked on Smart Lights <var id="smart_lights"></var> times</p>
+            <p>You clicked on Computer Accessories <var id="computer_accessories"></var> times</p>
+
+            <hr style="border-top: dotted 1px;" />
+            <p>You peaked into my personal account <var id="peak"></var> times :) </p>
+        </div>
+        
+
+        <!-- Footnote Section -->
+        <div class="footer">
+            <p>This website is created as a University of Michigan class project and is distributed under the GPLv2 license. Please read source code <a href="https://www.github.com/DanielHou315/Analytics_Reflector">here</a></p>
+        </div>
+
+        <script>
+            var os = getCookie("os");
+            var browser = getCookie("browser");
+            var lang = getCookie("lang");
+
+            document.getElementById('os').innerHTML = os;
+            document.getElementById('browser').innerHTML = browser;
+            document.getElementById('lang').innerHTML = lang;
+
+            // let info_list = ['os', 'browser', 'lang'];
+            // for (var i = 0;i < 8; i++){
+            //     var ck = getCookie(info_list[i]);
+            //     document.getElementById(info_list[i]).innerHTML = ck;
+            // }
+
+
+            // let network_list = ["ip", "country", "city", "asn"];
+            // for (var i = 0;i < 8; i++){
+            //     var ck = getCookie(network_list[i]);
+            //     document.getElementById(network_list[i]).innerHTML = ck;
+            // }
+
+
+            let ip = getCookie("ip");
+            let city = getCookie("city");
+            let country = getCookie("country");
+            let asn = getCookie("asn");
+            document.getElementById('ip').innerHTML = ip;
+            document.getElementById('city').innerHTML = city;
+            document.getElementById('country').innerHTML = country;
+            document.getElementById('asn').innerHTML = asn;
+
+
+            // let category_list = ["deals", "home", "snacks", "peak", "smart_camera", "computer_accessories", "smart_lights", "mouse_movement"];
+            // for (var i = 0;i < 8; i++){
+            //     var ck = getCookie(category_list[i]);
+            //     console.log(ck);
+            //     document.getElementById(category_list[i]).innerHTML = ck;
+            // }
+
+            let deals = getCookie("deals");
+            let home = getCookie("home");
+            let snacks = getCookie("snacks");
+            let peak = getCookie("peak");
+            let smart_camera = getCookie("smart_camera");
+            let smart_lights = getCookie("smart_lights");
+            let computer_accessories = getCookie("computer_accessories");
+
+            document.getElementById('deals').innerHTML = deals;
+            document.getElementById('home').innerHTML = home;
+            document.getElementById('snacks').innerHTML = snacks;
+            document.getElementById('smart_camera').innerHTML = smart_camera;
+            document.getElementById('smart_lights').innerHTML = smart_lights;
+            document.getElementById('computer_accessories').innerHTML = computer_accessories;
+            document.getElementById('peak').innerHTML = peak;
+            
+        </script>
+    </body>  
+</html>

@@ -5,8 +5,27 @@
     <header>
         <title>Analytics Reflector</title>
         <link rel="stylesheet" href="style.css">
+        <script src="cookie_util.js"></script>
+        <script>
+            function generateUUID(){
+                var result           = '';
+                var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                for ( var i = 0; i < 15; i++ ) {
+                    result += characters.charAt(Math.floor(Math.random() * 62));
+                }
+                return result;
+            }
+            window.onload = function(){
+                var cookie = document.cookie;
+                var uuid = getCookie("uuid");
+                if (uuid == ""){
+                    uuid = generateUUID();
+                    setCookie("uuid", uuid, 1)
+                }
+                document.getElementById('uuid').innerHTML = uuid;
+            };
+        </script>
     </header>
-
 
     <!-- Body -->
     <body bgcolor="lightblue" class="content">
@@ -18,10 +37,10 @@
         <hr style="border-top: dotted 1px;" />
         <div>
             <img src="umich_logo.png" alt="University of Michigan" class="center"></img>
-            <h2>Please read these information before proceeding: </h2>
             <p>- You have reached the analytical tracker reflector website of Huaidian Daniel Hou. </p>
-            <p>- This website sends NO data to the original server. All analytical data you see is stored locally.</p>
-            <p>- Please read our tips section and reference lists about analytical tracking in the digital space.</p>
+            <h2>Please read these information before proceeding: </h2>
+            <p>- This website sends NO data back to the server of this site. All analytical data you see is stored locally in your browser.</p>
+            <p>- This website uses web service from ipdata to determine your network status. Agree to their terms of services before proceeding. </p>
             <p>- This website is distributed under the GNU GPLv2 license and provides absolutely NO WARRANTY. 
                 Please verify the safety of the website before proceeding. </p>
         </div>
@@ -38,22 +57,11 @@
         </div>
 
         <script>
-            function generateUUID(){
-                var result           = '';
-                var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-                for ( var i = 0; i < 15; i++ ) {
-                    result += characters.charAt(Math.floor(Math.random() * 62));
-                }
-                return result;
+            function eula_agreed(){
+                setCookie("eula", "True", 1);
             }
-            window.onload = function(){
-                var cookie = document.cookie;
-                console.log(cookie);
-                res = generateUUID();
-                document.getElementById('uuid').innerHTML = res;
-            };
         </script>
-    
+
     </body>  
 
 </html>
