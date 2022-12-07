@@ -16,10 +16,8 @@
         <h1> Review <var id="output"></var></h1>
         
         <!-- Knowledge and Tips -->
-        <hr style="border-top: dotted 1px;" />
         <div>
-            <h2>Here are some information we may know</h2>
-            <p>When you click into the website of some web service</p>
+            <h2>Here are some information we know</h2>
         </div>
 
         <hr style="border-top: dotted 1px;" />
@@ -29,7 +27,7 @@
             <p>Your System Language is: <var id="lang"></var></p>
         </div>
         
-        <hr style="border-top: dotted 1px;" />
+        <br>
         <div>
             <h2>Your Network Information</h2>
             <p>Your Public IP address is: <var id="ip"></var> </p>
@@ -37,31 +35,67 @@
             <p>Your Internet Service Provider is: <var id="asn"></var>.</p>
         </div>
 
-        <hr style="border-top: dotted 1px;" />
+        <br>
         <div>
             <h2>Your Browsing Preference Test Result</h2>
             <p>You clicked on Deals <var id="deals"></var> times</p>
-
-            <hr style="border-top: dotted 1px;" />
+            
             <p>You clicked on Home Products <var id="home"></var> times</p>
             <p>You clicked on Snacks <var id="snacks"></var> times</p>
 
-            <hr style="border-top: dotted 1px;" />
             <p>You clicked on Smart Cameras <var id="smart_camera"></var> times</p>
             <p>You clicked on Smart Lights <var id="smart_lights"></var> times</p>
             <p>You clicked on Computer Accessories <var id="computer_accessories"></var> times</p>
 
-            <hr style="border-top: dotted 1px;" />
             <p>You peaked into my personal account <var id="peak"></var> times :) </p>
+
+            <p>We detected <var id="mousemove_cnt"></var> mouse movements in the last page.</p>
+            <p>Your last cursor position is X: <var id="mouse_last_x"></var>, Y: <var id="mouse_last_y"></var> </p>
+        </div>
+
+        <hr style="border-top: dotted 1px;" />
+        <div>
+            <h2>Did you know?</h2>
+            <p>Websites use your mouse movements and click activities to identify whether you are a human user [7].</p>
+            <p>By analyzing user mouse movement data, websites can infer your eye movement and even psychological activities. Where your mouse stays indicates your interest even if you did not click on the item. [8]</p>
+            <p>You can monitor what information leaves your browser by right-click --> Inspect (or Inspect Elements) --> Network.</p>
+        </div>
+
+        <!-- Reference for this site-->
+        <hr style="border-top: dotted 1px;" />
+        <div>
+            <h2>References</h2>
+            <p>[1] G. Weinberg, “How does google track me even when I'm not using it?,” Spread Privacy, 14-Oct-2021. [Online]. Available: https://spreadprivacy.com/how-does-google-track-me-even-when-im-not-using-it/. [Accessed: 06-Dec-2022]. </p>
+            <p>[2] “How to disable cookies?,” Cookie Script, 19-Apr-2022. [Online]. Available: https://cookie-script.com/blog/disable-cookies. [Accessed: 06-Dec-2022]. </p>
+            <p>[3] C. Condon, “LINUX: Over 34% more geeky than any other operating system.” Massachusetts Institute of Technology, Cambridge, MA. </p>
+            <p>[4] “Mac users tend to spend more than PC users,” iResQ, 04-Mar-2021. [Online]. Available: https://www.iresq.com/expert-advice/mac-users-tend-to-spend-more-than-pc-users/. [Accessed: 06-Dec-2022]. </p>
+            <p>[5] Written by Dan Rafter for NortonLifeLock, “What is an IP address? A definition + how to find it,” Norton, 25-Jul-2022. [Online]. Available: https://us.norton.com/blog/privacy/what-is-an-ip-address. [Accessed: 06-Dec-2022]. </p>
+            <p>[6] M. Kubilius, “What is ASN? introduction to autonomous system numbers,” IPXO, 31-Aug-2022. [Online]. Available: https://www.ipxo.com/blog/what-is-asn/. [Accessed: 06-Dec-2022]. </p>
+            <p>[7] A. Kiskyte, “How to crawl a website without getting blocked?,” Oxylabs, 16-Sep-2021. [Online]. Available: https://oxylabs.io/blog/how-to-crawl-a-website-without-getting-blocked. [Accessed: 06-Dec-2022]. </p>
+            <p>[8] T. Rotolo, “Mouse movement patterns and user frustration,” Trymata Blog, 28-Oct-2016. [Online]. Available: https://trymata.com/blog/2016/10/28/mouse-movement-patterns-and-user-frustration/. [Accessed: 06-Dec-2022]. </p>
         </div>
         
-
         <!-- Footnote Section -->
         <div class="footer">
             <p>This website is created as a University of Michigan class project and is distributed under the GPLv2 license. Please read source code <a href="https://www.github.com/DanielHou315/Analytics_Reflector">here</a></p>
         </div>
 
+        <hr style="border-top: dotted 1px;" />
+        <div>
+            <h3>That's it!</h3>
+            <p style="line-height: 0.3">Thank you for supporting This Project.</p>
+            <p style="line-height: 0.3">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp_</p>
+            <p style="line-height: 0.3">&nbsp&nbsp&nbsp&nbsp.__(.)< (MEOW) </p>
+            <p style="line-height: 0.3">&nbsp&nbsp&nbsp&nbsp\___) </p>
+            <br>
+            <br>
+            <p>&nbsp;</p>
+        </div>
+
+        
+
         <script>
+            // The dumbest way to do something like this I know. Didn't bother changing it. 
             var os = getCookie("os");
             var browser = getCookie("browser");
             var lang = getCookie("lang");
@@ -70,36 +104,14 @@
             document.getElementById('browser').innerHTML = browser;
             document.getElementById('lang').innerHTML = lang;
 
-            // let info_list = ['os', 'browser', 'lang'];
-            // for (var i = 0;i < 8; i++){
-            //     var ck = getCookie(info_list[i]);
-            //     document.getElementById(info_list[i]).innerHTML = ck;
-            // }
-
-
-            // let network_list = ["ip", "country", "city", "asn"];
-            // for (var i = 0;i < 8; i++){
-            //     var ck = getCookie(network_list[i]);
-            //     document.getElementById(network_list[i]).innerHTML = ck;
-            // }
-
-
-            let ip = getCookie("ip");
-            let city = getCookie("city");
-            let country = getCookie("country");
-            let asn = getCookie("asn");
-            document.getElementById('ip').innerHTML = ip;
-            document.getElementById('city').innerHTML = city;
-            document.getElementById('country').innerHTML = country;
-            document.getElementById('asn').innerHTML = asn;
-
-
-            // let category_list = ["deals", "home", "snacks", "peak", "smart_camera", "computer_accessories", "smart_lights", "mouse_movement"];
-            // for (var i = 0;i < 8; i++){
-            //     var ck = getCookie(category_list[i]);
-            //     console.log(ck);
-            //     document.getElementById(category_list[i]).innerHTML = ck;
-            // }
+            // let ip = 
+            // let city = 
+            // let country = 
+            // let asn = 
+            document.getElementById('ip').innerHTML = getCookie("ip");
+            document.getElementById('city').innerHTML = getCookie("city");
+            document.getElementById('country').innerHTML = getCookie("country");
+            document.getElementById('asn').innerHTML =getCookie("asn");
 
             let deals = getCookie("deals");
             let home = getCookie("home");
@@ -116,7 +128,19 @@
             document.getElementById('smart_lights').innerHTML = smart_lights;
             document.getElementById('computer_accessories').innerHTML = computer_accessories;
             document.getElementById('peak').innerHTML = peak;
+
+            document.getElementById('mouse_last_x').innerHTML = getCookie("mouse_last_x");
+            document.getElementById('mouse_last_y').innerHTML = getCookie("mouse_last_y");
+            
+            document.getElementById('mousemove_cnt').innerHTML = getCookie("mousemove_cnt");
             
         </script>
     </body>  
+    
 </html>
+
+<!--       _
+       .__(.)< (MEOW)
+        \___)   
+ ~~~~~~~~~~~~~~~~~~-->
+
